@@ -9,6 +9,9 @@ router.get('/', (req, res)=>{
     res.send('This is the login page');
 })
 
-router.post('/', passport.authenticate('local'));
+router.post('/', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+}));
 
 module.exports = router;

@@ -29,8 +29,10 @@ db.once('open', () => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(expressSession({
-    secret: process.env.SECRET
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
 }))
 
 
