@@ -11,7 +11,8 @@ const port = 3000;
 //Following vars are for routeHandlers
 var indexRouter = require('./routes/index');
 var signUpRouter = require('./routes/signup');
-var loginRouter = require('./routes/login')
+var loginRouter = require('./routes/login');
+var logOutRouter = require('./routes/logout');
 const mongoose = require('mongoose');
 
 
@@ -40,11 +41,24 @@ app.use(session({
 require('./auth/passport')(app);
 
 
+checkAuth = (req,res,next) =>{
+    if(req.isAuthenticated()){
+        console.log(req.user.username + " was redirected to dash")
+        return res.redirect('/');
+    }
+    else{
+        next()
+    }
+}
+
 //Using routes
 app.use('/', indexRouter);
-app.use('/signup', signUpRouter);
-app.use('/login', loginRouter)
+app.use('/signup', checkAuth, signUpRouter);
+app.use('/login', checkAuth, loginRouter);
+app.use('/logout', logOutRouter);
 
 app.listen(port, ()=>{
     console.log('No Bull port is up and running')
 })
+
+//testing to see how server level middle ware works by redirecting login
