@@ -2,10 +2,11 @@ require('dotenv').config();
 var bodyParser = require('body-parser');
 var express = require('express');
 const session = require('express-session');
+var cors = require('cors');
 var passport = require('passport');
 var testAuthenticate = require('./auth/passport');
 var app = express();
-const port = 3000;
+const port = 4000;
 
 
 //Following vars are for routeHandlers
@@ -27,7 +28,7 @@ db.on('error', ()=> {
 db.once('open', () => {
     console.log('Sucessfully connected to database')
 })
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
