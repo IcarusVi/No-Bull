@@ -6,7 +6,7 @@ var cors = require('cors');
 var passport = require('passport');
 var testAuthenticate = require('./auth/passport');
 var app = express();
-const port = 4000;
+const port = 8080;
 
 
 //Following vars are for routeHandlers
