@@ -5,13 +5,16 @@ var passport = require('passport');
 
 
 
-router.get('/', (req, res)=>{
-    res.send('This is the login page');
+router.get('/', (req, res) => {
+    res.json({
+        signedIn: false
+    });
 })
 
 router.post('/', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login'
-}));
+})
+);
 
 module.exports = router;

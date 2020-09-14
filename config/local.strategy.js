@@ -19,7 +19,6 @@ module.exports = () => {
                     }
                     else {
                         console.log('You in the wrong neighborhood');
-                        //res.send('Wrong neighborhood pal');
                         return done(null, false);
                     }
                 }

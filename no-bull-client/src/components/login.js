@@ -5,7 +5,8 @@ class LogInForm extends React.Component{
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      signedIn: false
     }
   }
   handleChange = (e) =>{
