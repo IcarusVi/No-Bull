@@ -11,7 +11,9 @@ router.get('/', (req, res)=>{
     }
     else{
         res.json({
-            signedIn: true
+            signedIn: true,
+            username: req.user.username,
+            id: req.user._id
         })
     }
 })
