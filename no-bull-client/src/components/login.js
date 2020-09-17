@@ -30,6 +30,14 @@ class LogInForm extends React.Component{
         },
         body: JSON.stringify(this.state)
       })
+      .then(data => {
+        if(data.signedIn){
+          redirect: window.location.replace('http://localhost:3000')
+        }
+        else{
+          alert('Failure to login please try again')
+        }
+      })
     }
   }
     render() {
