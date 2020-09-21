@@ -27,7 +27,7 @@ body{
   input{
     width: 666px;
     height: 83px;
-    margin-bottom:59px;
+    margin-bottom:49px;
     font-size:36px;
   }
   input::placeholder{
@@ -91,6 +91,9 @@ body{
     margin:0;
     margin-left:25px;
   }
+  .hamburger{
+    display:none;
+  }
 }
 
 .sidebar{
@@ -109,6 +112,9 @@ body{
   }
   .linkStyle:hover{
     color:red;
+  }
+  .fa-bars{
+    display:none;
   }
 }
 
@@ -135,3 +141,52 @@ body{
 }
 
 /* End of that  */
+
+//Media Query for Phones 
+@media only screen and (max-width: 768px){
+  .header{
+    width: 414px;
+    display:block;
+    h2{
+      display:inline-block;
+    }
+    .fa-bars{
+      display: inline-block;
+      font-size:30px;
+      
+    }
+    .fa-bars:hover{
+      color:red;
+    }
+  }
+
+  #dash{
+    height:auto;
+    width: 414px;
+  }
+
+
+
+  .sidebar{
+    width:414px;
+    display:none;
+  }
+
+  .sidebar-active{
+    display:flex;
+    margin-top:75px;
+  }
+
+  .hub{
+    margin: 0 auto;
+    margin-top: 26px;
+  }
+
+  .card{
+    height:487px;
+    width:332px;
+    margin: 0 auto;
+    margin-bottom: 26px;
+  }
+  
+}
