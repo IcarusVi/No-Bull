@@ -29,25 +29,3 @@ exports.saveUser = async (req, res) => {
         }
     })
 }
-//Function to find User and log them in
-/*exports.login = (req, res) => {
-    const currentUser = req.body.username;
-    const currentPass = req.body.password
-    User.findOne({username: currentUser}, async (err, user )=>{
-        if(err){
-            console.log('Problem finding User')
-        }
-        //If a username with that name is found use bcrypt to compare the two password
-        else{
-            if(await bcrypt.compare(currentPass, user.password)){
-                console.log(user.username + " successfully logged in ");
-                res.send(user.username + " successfully logged in ");
-            }
-            else{
-                console.log('You in the wrong neighborhood');
-                res.send('Wrong neighborhood pal');
-            }
-        }
-
-    })
-}*/
