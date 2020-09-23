@@ -13,7 +13,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: false,
+      signedIn: true,
       username: 'Test'
     }
   }

@@ -91,7 +91,7 @@ body{
     margin:0;
     margin-left:25px;
   }
-  .hamburger{
+  .fa-bars{
     display:none;
   }
 }
@@ -153,6 +153,7 @@ body{
     .fa-bars{
       display: inline-block;
       font-size:30px;
+      margin-left: 170px;
       
     }
     .fa-bars:hover{
@@ -168,13 +169,16 @@ body{
 
 
   .sidebar{
-    width:414px;
     display:none;
   }
 
   .sidebar-active{
-    display:flex;
-    margin-top:75px;
+    display:block;
+    width:414px;
+    height:auto;
+    position: absolute;
+    margin-top:0px;
+
   }
 
   .hub{
