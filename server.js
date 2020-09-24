@@ -14,6 +14,7 @@ var indexRouter = require('./routes/index');
 var signUpRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var logOutRouter = require('./routes/logout');
+var addRoutineRouter = require('./routes/users');
 const mongoose = require('mongoose');
 
 
@@ -57,6 +58,8 @@ app.use('/', indexRouter);
 app.use('/signup', checkAuth, signUpRouter);
 app.use('/login', checkAuth, loginRouter);
 app.use('/logout', logOutRouter);
+app.use('/add/routine', addRoutineRouter);
+
 
 app.listen(port, ()=>{
     console.log('No Bull port is up and running')
