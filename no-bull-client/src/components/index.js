@@ -3,6 +3,7 @@ import SideBar from './sidebar';
 import Header from './header';
 import DashBoard from './dashboard';
 import Exercises from './exercises';
+import AddExercise from './addExercise';
 import {
   BrowserRouter as Router,
   Switch,
@@ -49,6 +50,8 @@ class Home extends React.Component {
           <div className="content">
             <Route exact path="/" component ={DashBoard}/>
             <Route path="/exercises" component ={Exercises}/>
+    
+
           </div>
         </div>
       )
