@@ -142,6 +142,52 @@ body{
 
 /* End of that  */
 
+/* CSS for the add Exercise Section */
+.createExercise{
+  background-color: #240090;
+  margin:auto;
+  width:1190.8px;
+  height:876px;
+  h1{
+    text-align:center;
+  }
+  form{
+    display:flex;
+    margin-left:58px;
+    margin-bottom:20px;
+    input{
+      margin-right:20px;
+    }
+    button{
+      border:0;
+    }
+    .fa-plus{
+      font-size:25px;
+      
+    }
+    .fa-plus:hover{
+      color:yellow;
+    }
+  }
+  
+}
+#sub-routine{
+  margin-left:58px;
+}
+
+#routineName{
+  margin-left:58px;
+}
+.routineActive{
+  display:block;
+}
+
+
+
+//End of CSS section for add Exercise
+
+
+
 //Media Query for Phones 
 @media only screen and (max-width: 768px){
   .header{
