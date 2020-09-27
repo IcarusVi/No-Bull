@@ -28,7 +28,7 @@ export default class AddExercise extends Component {
       }
       
       addExercise = () =>{
-        event.preventDefault();
+        
         let newExercise = {
           title: this.state.exerciseTitle,
           sets: this.state.Sets,

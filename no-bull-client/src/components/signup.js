@@ -32,7 +32,7 @@ class SignUpForm extends React.Component{
       })
       .then(data =>{
         if(data){
-          redirect: window.location.replace('http://localhost:3000')
+          redirect: window.location.replace('http://localhost:3000/login')
         }
         else{
           alert('Error in signing up please try again');

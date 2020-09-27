@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import SignUpForm from './components/signup';
 import LogInForm from './components/login';
-import Home from './components/index';
+import Index from './components/index';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +20,7 @@ function App() {
         <LogInForm/>
       </Route>
       <Route path='/'>
-        <Home/>
+        <Index/>
       </Route>
     </Switch>
   );

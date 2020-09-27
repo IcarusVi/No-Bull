@@ -10,15 +10,15 @@ import {
   Route,
   Link
 } from "react-router-dom";
-class Home extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: true,
-      username: 'Test'
+      signedIn: false,
+      username: ''
     }
   }
-  componentWillMount(){
+  componentDidMount(){
     fetch('http://localhost:8080/')
       .then(response => response.json())
       .then(data=> {
@@ -50,7 +50,6 @@ class Home extends React.Component {
           <div className="content">
             <Route exact path="/" component ={DashBoard}/>
             <Route path="/exercises" component ={Exercises}/>
-    
 
           </div>
         </div>
@@ -59,4 +58,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Index;

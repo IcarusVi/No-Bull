@@ -31,8 +31,10 @@ class LogInForm extends React.Component{
         body: JSON.stringify(this.state)
       })
       .then(data => {
-        if(data.signedIn){
-          redirect: window.location.replace('http://localhost:3000')
+        console.log(data)
+        if(data.status == 200){
+          window.location.replace('http://localhost:3000/');
+
         }
         else{
           alert('Failure to login please try again')
@@ -45,8 +47,8 @@ class LogInForm extends React.Component{
         <div id="login">
           <form onSubmit={this.handleSubmit}>
             <h1> LOGIN </h1>
-            <input type='text' onChange = {this.handleChange} name='username' placeholder="Enter Email"/><br/>
-            <input type='text' onChange = {this.handleChange} name ='password' placeholder="Enter Password"/><br/>
+            <input type='text' onChange = {this.handleChange} name='username' placeholder="Enter Username"/><br/>
+            <input type='password' onChange = {this.handleChange} name ='password' placeholder="Enter Password"/><br/>
             <input type="submit" value="LOGIN" id="submit-button"/>
           </form>
         </div>
