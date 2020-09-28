@@ -17,6 +17,10 @@ var logOutRouter = require('./routes/logout');
 var addRoutineRouter = require('./routes/users');
 const mongoose = require('mongoose');
 
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
 
 //Set up mongoose connection; 
 const uri = "mongodb+srv://NewUser:"+ process.env.DB_PASS +"@cluster0.fq0b2.mongodb.net/No_Bull?retryWrites=true&w=majority";
@@ -29,7 +33,7 @@ db.on('error', ()=> {
 db.once('open', () => {
     console.log('Sucessfully connected to database')
 })
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({

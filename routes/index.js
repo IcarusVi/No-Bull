@@ -3,18 +3,15 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', (req, res)=>{
-    //If user is not signed in redirect to them this
-    if(!req.isAuthenticated()){
-        res.json({
-            signedIn: false
-        })
-    }
-    else{
+    console.log(req.user);
+    if(req.user){
         res.json({
             signedIn: true,
             username: req.user.username,
-            id: req.user._id
         })
+    }
+    else {
+        res.json({ user: null })
     }
 })
 

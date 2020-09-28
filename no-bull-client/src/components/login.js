@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 class LogInForm extends React.Component{
   constructor(props){
     super(props);
@@ -23,23 +23,19 @@ class LogInForm extends React.Component{
       alert("Please fill in email and password fields")
     }
     else{
-      fetch('http://localhost:8080/login',{
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(this.state)
-      })
-      .then(data => {
-        console.log(data)
-        if(data.status == 200){
-          window.location.replace('http://localhost:3000/');
-
-        }
-        else{
-          alert('Failure to login please try again')
-        }
-      })
+      e.preventDefault();
+      axios
+        .post('http://localhost:8080/login', {
+          username: this.state.username,
+          password: this.state.password
+        }, {
+          withCredentials: true
+        })
+        .then(response =>{
+          console.log('login reponse: ')
+          console.log(response.data.username)
+        })
+       
     }
   }
     render() {

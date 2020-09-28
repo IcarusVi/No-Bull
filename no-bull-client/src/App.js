@@ -16,11 +16,11 @@ function App() {
       <Route path='/signup'>
         <SignUpForm/>
       </Route>
-      <Route path='/login'>
-        <LogInForm/>
+      <Route path='/index'>
+        <Index/>
       </Route>
       <Route path='/'>
-        <Index/>
+        <LogInForm/>
       </Route>
     </Switch>
   );

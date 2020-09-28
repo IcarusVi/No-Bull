@@ -11,10 +11,13 @@ router.get('/', (req, res) => {
     });
 })
 
-router.post('/', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login'
-})
+router.post('/', passport.authenticate('local'), (req, res) => {
+    console.log('logged in ', req.user)
+    var userInfo = {
+        username: req.user.username
+    };
+    res.send(userInfo);
+}
 );
 
 module.exports = router;
