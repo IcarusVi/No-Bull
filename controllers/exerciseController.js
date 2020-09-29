@@ -37,7 +37,7 @@ exports.saveRoutine = async(req, res) =>{
 
    //let formCount = Object.keys(req.body).length;
    let routineTitle = req.body.routineName
-   let totalExercises = req.json;
+   let totalExercises = req.body.exercises;
 
    res.json({
        Name: routineTitle,

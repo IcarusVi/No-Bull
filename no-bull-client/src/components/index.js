@@ -46,6 +46,10 @@ class Index extends React.Component {
       })
   }
 
+  componentDidUpdate(){
+
+  }
+
   //If user is signed in return the index page
   render() {
     if (!this.state.signedIn) {
@@ -61,7 +65,7 @@ class Index extends React.Component {
       return (
         <div id="dash">
           <Header name={this.state.username} />
-          <SideBar />
+          <SideBar logOut={this.handleLogOut} />
           <div className="content">
             <Route exact path="/index" component={DashBoard} />
             <Route path="/index/exercises" component={Exercises} />

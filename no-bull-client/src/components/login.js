@@ -34,6 +34,7 @@ class LogInForm extends React.Component{
         .then(response =>{
           console.log('login reponse: ')
           console.log(response.data.username)
+          window.location.href='/index'
         })
        
     }
