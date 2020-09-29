@@ -19,18 +19,33 @@ class Index extends React.Component {
       username: ''
     }
   }
-  componentDidMount(){
+
+  handleLogOut = () => {
     axios
-      .get('http://localhost:8080/', {withCredentials: true})
-      .then(response=> {
-        //If backend responds that the user is signed in change state
-        console.log(response.data)
+      .get('http://localhost:8080/logout', { withCredentials: true })
+      .then(
         this.setState({
-          signedIn: true,
-          username: response.data.username
+          signedIn: false,
+          username: ''
         })
+      )
+
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:8080/', { withCredentials: true })
+      .then(response => {
+        //If backend responds that the user is signed in change state
+        if (response.data.signedIn) {
+          this.setState({
+            signedIn: true,
+            username: response.data.username
+          })
+        }
       })
   }
+
   //If user is signed in return the index page
   render() {
     if (!this.state.signedIn) {
@@ -42,14 +57,14 @@ class Index extends React.Component {
       )
     }
     //If signed in render the full dashboard page
-    else{
-      return ( 
+    else {
+      return (
         <div id="dash">
-          <Header name={this.state.username}/>
-          <SideBar/>
+          <Header name={this.state.username} />
+          <SideBar />
           <div className="content">
-            <Route exact path="/index" component ={DashBoard}/>
-            <Route path="/index/exercises" component ={Exercises}/>
+            <Route exact path="/index" component={DashBoard} />
+            <Route path="/index/exercises" component={Exercises} />
           </div>
         </div>
       )

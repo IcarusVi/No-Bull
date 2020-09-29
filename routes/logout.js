@@ -7,7 +7,7 @@ var passport = require('passport');
 
 router.get('/', (req, res)=>{
     req.logOut();
-    res.redirect('/login');
+    console.log(req.user.username + ' was logged out')
 })
 
 

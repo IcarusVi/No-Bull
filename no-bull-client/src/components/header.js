@@ -11,6 +11,7 @@ class Header extends React.Component {
         nav.classList.toggle("sidebar-active");
 
     }
+
     render() {
         return (
             <div className='header'>
