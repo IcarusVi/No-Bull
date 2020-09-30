@@ -1,5 +1,4 @@
-var Exercise = require('../models/exerciseModel');
-var Routine = require('../models/exerciseModel');
+
 var User = require('../models/userModel')
 
 //function to save an Exercise
@@ -36,12 +35,27 @@ exports.saveRoutine = async(req, res) =>{
 
 
    //let formCount = Object.keys(req.body).length;
-   let routineTitle = req.body.routineName
+   let routineTitle = req.body.routineName;
    let totalExercises = req.body.exercises;
-   console.log(totalExercises);
 
-   res.json({
-       Name: routineTitle,
-       Exercises: totalExercises
+   let newRoutine = {
+       RoutineName: routineTitle,
+       ExerciseList: totalExercises
+   }
+
+   console.log(newRoutine);
+
+   User.findByIdAndUpdate(req.user._id,
+    {$push: {"routine": newRoutine}},
+    {safe: true, upsert: true},
+    (err, user)=>{
+       if(err){
+           console.log(err)
+       }
+       else{
+           console.log(newRoutine.RoutineName + " was saved to " + user.username)
+       }
    })
+
+   res.json(newRoutine);
 }

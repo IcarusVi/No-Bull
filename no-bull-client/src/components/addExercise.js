@@ -46,7 +46,7 @@ export default class AddExercise extends Component {
 
   handleSubmit = () => {
     axios
-      .post('http://localhost:8080/users', {
+      .post('http://localhost:8080/exercise/add', {
         routineName: this.state.routineName,
         exercises: this.state.routineExercises
       }, {

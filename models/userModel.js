@@ -8,8 +8,7 @@ const userSchema = new Schema({
     username: String,
     password: String,
     email: String,
-    routine: Array,
-    exercise: Array
+    routine: Array
 })
 
 module.exports = mongoose.model('User', userSchema);
