@@ -43,6 +43,9 @@ class Index extends React.Component {
             username: response.data.username
           })
         }
+        else{
+          window.location.href='/'
+        }
       })
   }
 
@@ -67,8 +70,9 @@ class Index extends React.Component {
           <Header name={this.state.username} />
           <SideBar logOut={this.handleLogOut} />
           <div className="content">
+            
+            <Route path="/index/exercises" component={AddExercise} />
             <Route exact path="/index" component={DashBoard} />
-            <Route path="/index/exercises" component={Exercises} />
           </div>
         </div>
       )

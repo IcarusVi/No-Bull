@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class AddExercise extends Component {
   constructor(props) {
@@ -26,8 +27,8 @@ export default class AddExercise extends Component {
     })
   }
 
-  addExercise = () => {
-
+  addExercise = (e) => {
+    e.preventDefault();
     let newExercise = {
       title: this.state.exerciseTitle,
       sets: this.state.Sets,
@@ -62,6 +63,8 @@ export default class AddExercise extends Component {
       )
   }
 
+  
+
   render() {
     return (
       <div className="createExercise">
@@ -94,7 +97,7 @@ export default class AddExercise extends Component {
           <br />
           <button onClick={this.addExercise}><i className="fas fa-plus"></i></button>
         </form>
-        <button id="sub-routine">Submit Routine</button>
+        <button onClick={this.handleSubmit} id="sub-routine">Submit Routine</button>
       </div>
     );
   }

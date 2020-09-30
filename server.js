@@ -62,7 +62,7 @@ app.use('/', indexRouter);
 app.use('/signup', checkAuth, signUpRouter);
 app.use('/login', checkAuth, loginRouter);
 app.use('/logout', logOutRouter);
-app.use('/add/routine', addRoutineRouter);
+app.use('/users', addRoutineRouter);
 
 
 app.listen(port, ()=>{
