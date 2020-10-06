@@ -189,6 +189,29 @@ body{
 //End of CSS section for add Exercise
 
 
+//CSS for the routine home page
+
+.routineIndex{
+  margin-left:176px;
+  display:flex;
+  justify-content:center;
+}
+
+.routineCard{
+  width:436px;
+  height:876px;
+  background-color:#240090;
+  text-align:center;
+  p{
+    font-size:64px;
+    font-weight: bold;
+  }
+  li{
+    margin-bottom:29px;
+    font-size:28px;
+  }
+}
+
 
 //Media Query for Phones 
 @media only screen and (max-width: 768px){
