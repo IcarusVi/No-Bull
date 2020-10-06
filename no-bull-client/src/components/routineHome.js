@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { response } from 'express'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class routineHome extends Component {
     constructor(props) {
@@ -14,14 +14,14 @@ export default class routineHome extends Component {
         axios
             .get('http://localhost:8080/exercise', { withCredentials: true })
             .then(response => {
-                let receivedRoutine = response.data.routine;
-                this.setState({
+                let receivedRoutine = response.data.routine.routine
+                
+                {this.setState({
                     routineList: receivedRoutine
-                })
+                })}
             }
 
             )
-
     }
 
     convertToLi = (test) => {
@@ -37,17 +37,29 @@ export default class routineHome extends Component {
 
 
     render() {
-        return (
-            <div className="routineIndex">
-                {this.state.routineList.map((routine, i) => {
-                    return (
-                        <div key={i} className="routineCard">
-                            <p>{routine.RoutineName}</p>
-                            <ul>{this.convertToLi(routine.ExerciseList)}</ul>
-                        </div>
-                    );
-                })}
-            </div>
-        );
+        if (this.state.routineList.length !== 0) {
+            return (
+                <div className="routineIndex">
+                    {this.state.routineList.map((routine, i) => {
+                        return (
+                            <div key={i} className="routineCard">
+                                <p>{routine.RoutineName}</p>
+                                <ul>{this.convertToLi(routine.ExerciseList)}</ul>
+                            </div>
+                        );
+                    })}
+                    <button><Link to="/index/exercises/add">Click to Add Routine</Link></button>
+                </div>
+            );
+        }
+
+        else{
+            return (
+                <div className="routineIndex">
+                    <button><Link to="/index/exercises/add">Click to Add Routine</Link></button>
+                </div>
+
+            );
+        }
     }
 }

@@ -35,8 +35,16 @@ exports.saveRoutine = (req, res) =>{
    res.json(newRoutine);
 }
 
-exports.getRoutine = (req, res) => {
-    let userRoutine = req.user.routine;
+exports.getRoutine = async (req, res) => {
+    let userRoutine = await User.findById(req.user._id, 'routine', (err,user)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(user)
+            return user
+        }
+    })
     if(userRoutine.length !== 0){
         res.json({
             routine: userRoutine

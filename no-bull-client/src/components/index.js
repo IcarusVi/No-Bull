@@ -4,6 +4,7 @@ import Header from './header';
 import DashBoard from './dashboard';
 import Exercises from './exercises';
 import AddExercise from './addExercise';
+import RoutineHome from './routineHome'
 import axios from 'axios';
 import {
   BrowserRouter as Router,
@@ -49,9 +50,6 @@ class Index extends React.Component {
       })
   }
 
-  componentDidUpdate(){
-
-  }
 
   //If user is signed in return the index page
   render() {
@@ -70,9 +68,9 @@ class Index extends React.Component {
           <Header name={this.state.username} />
           <SideBar logOut={this.handleLogOut} />
           <div className="content">
-            
-            <Route path="/index/exercises" component={AddExercise} />
-            <Route exact path="/index" component={DashBoard} />
+            <Route path="/index/exercises" component={RoutineHome}/>
+            <Route path="/index/exercises/add" component={AddExercise}/>
+            <Route exact path="/index" component={DashBoard}/>
           </div>
         </div>
       )
